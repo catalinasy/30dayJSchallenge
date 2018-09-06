@@ -1,6 +1,7 @@
     html {
       box-sizing: border-box;
-      background:#ffc600;
+      background:#2980B9;
+      background-image: url("https://images.unsplash.com/photo-1446776899648-aa78eefe8ed0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d9097feda8d55079d87e26932c67f508&auto=format&fit=crop&w=500&q=60");
       font-family:'helvetica neue';
       font-size: 20px;
       font-weight: 200;
@@ -67,5 +68,5 @@
     }
 
     .hl {
-      background:#ffc600;
+      background:#BB8FCE;
     }
