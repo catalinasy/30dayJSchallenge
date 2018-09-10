@@ -10,6 +10,7 @@
     html {
       font-family: sans-serif;
       background:#ffc600;
+      background-image:url(https://images.unsplash.com/photo-1530061059859-d7ad46f0b742?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=921d64e64cb069dc2d6ba81264ff07ad&auto=format&fit=crop&w=750&q=80);
     }
 
     .inbox {
@@ -99,6 +100,35 @@
   </div>
 
 <script>
+ const checkboxes = document.querySelectorAll('input[type ="checkbox"]');
+
+
+let lastChecked;
+   
+ function handleCheck (e) {
+    let inBetween = false;
+     if(e.shiftKey && this.checked) {
+        checkboxes.forEach(checkbox => {
+          console.log(checkbox);
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+            console.log('Starting to check them inbetween')
+          }
+
+          if (inBetween) {
+            checkbox.checked = true;
+          }
+        })
+     }    
+ 
+     lastChecked = this;
+ }
+
+
+ checkboxes.forEach(checkbox => checkbox.addEventListener("click", handleCheck));
+
+
+
 </script>
 </body>
 </html>
