@@ -5,9 +5,8 @@
   <title>Mouse Shadow</title>
 </head>
 <body>
-
   <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
+    <h1 contenteditable>🧀 QUESO!!</h1>
   </div>
 
   <style>
@@ -18,6 +17,9 @@
 
   body {
     margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(https://images.unsplash.com/photo-1519411792752-25c2468cccb3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=26d1fbc9a859dfe3edc2f6528e46335d&auto=format&fit=crop&w=1054&q=80)
   }
 
   .hero {
@@ -35,6 +37,35 @@
   </style>
 
 <script>
+  const hero= document.querySelector('.hero');
+  const text= hero.querySelector('h1');
+  const walk = 250;
+  
+
+  function shadow (e){
+    const {offsetWidth: width, offsetHeight: height} = hero;
+    let {offsetX: x, offsetY: y} = e;
+    
+    
+    if(this !== e.target){
+
+      x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
+    const xwalk = Math.round ((x/ width * walk ) - (walk / 2));
+    const ywalk = Math.round((y/ height * walk ) - (walk / 2));
+
+    text.style.textShadow= 
+        `${xwalk}px ${ywalk}px 0 rgba(65, 214, 251, 1),
+        ${xwalk}px ${ywalk * -1}px 0 rgba(251, 65, 251, 1),
+        ${xwalk * -2}px ${xwalk}px 0 rgba(251, 65, 0, 1),
+        ${ywalk}px ${ywalk * -1}px 0 rgba(35,0,230,0.7),
+        ${ywalk * 2}px ${ywalk}px 0 rgba(35,250,230,0.7),
+        ${ywalk * -1}px ${ywalk}px 0 rgba(0,170,255,25)`
+  }
+
+  hero.addEventListener('mousemove', shadow)
+
 </script>
 </body>
 </html>
